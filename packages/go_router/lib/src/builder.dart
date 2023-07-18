@@ -128,7 +128,7 @@ class RouteBuilder {
     // https://github.com/flutter/flutter/issues/126365
     final _PagePopContext pagePopContext =
         _PagePopContext._(onPopPageWithRouteMatch);
-    var pages = <Page<Object?>>[];
+    List<Page<Object?>>? pages;
     if (routerNeglect) {
       Router.neglect(context, () {
         pages = _buildPages(context, matchList, pagePopContext, routerNeglect,
