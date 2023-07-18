@@ -138,11 +138,12 @@ class RouteBuilder {
       pages = _buildPages(context, matchList, pagePopContext, routerNeglect,
           navigatorKey, registry);
     }
+    assert(pages != null);
     return builderWithNav(
       context,
       _buildNavigator(
         pagePopContext.onPopPage,
-        pages,
+        pages!,
         navigatorKey,
         observers: observers,
         restorationScopeId: restorationScopeId,
