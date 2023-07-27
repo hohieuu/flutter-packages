@@ -2,7 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
+import 'package:go_router/src/test.dart';
 
 import 'configuration.dart';
 import 'delegate.dart';
@@ -83,7 +86,11 @@ class GoRouter implements RouterConfig<RouteMatchList> {
     bool debugLogDiagnostics = false,
     GlobalKey<NavigatorState>? navigatorKey,
     String? restorationScopeId,
-  })  : backButtonDispatcher = RootBackButtonDispatcher(),
+  })  : backButtonDispatcher = CustomBackButtonDispatcher(
+          onBackButtonPressed: () {
+            print('hello world');
+          },
+        ),
         assert(
           initialExtra == null || initialLocation != null,
           'initialLocation must be set in order to use initialExtra',
